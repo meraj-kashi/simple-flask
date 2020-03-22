@@ -5,7 +5,14 @@
         </title>
     </head>
     <body>
-        Hi {{name}} <br/> 
+        Hi!  <br/> 
         This parameter come from python app : {{var_name}}
+        <h1>
+            Use form to send data
+        </h1>
+        <form method="POST">
+           Dear {{name}}, Please enter your name: <input type="text" name="name" >
+           <input type="submit">
+        </form>
     </body>
 </html>
