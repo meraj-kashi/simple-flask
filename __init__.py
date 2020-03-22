@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-import random
+import random, os
 
 app= Flask(__name__)
 
@@ -13,9 +13,14 @@ def hello_world():
         var_name='False'
     
     #Get name from request arquemnt
-    if not request.form.get('name'):  #If no name enetered 
-        name="guest"
+    if not request.form.get('num'):  #If no name enetered 
+        response="No number found! please try again."
     else:
-        name=request.form.get('name')  #exp: http://localhost:5000/?name=meraj but here I use POST method! 
+        response=request.form.get('num')  #exp: http://localhost:5000/?name=meraj but here I use POST method! 
+        if not int(response) % 2 :
+            response="Even"
+        else:
+            response="Odd"
+
     
-    return render_template("index.html",name=name,var_name=var_name )
+    return render_template("index.html", response=response,var_name=var_name )
