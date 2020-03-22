@@ -17,10 +17,6 @@ def hello_world():
         response="No number found! please try again."
     else:
         response=request.form.get('num')  #exp: http://localhost:5000/?name=meraj but here I use POST method! 
-        if not int(response) % 2 :
-            response="Even"
-        else:
-            response="Odd"
-
+        response="Odd" if int(response)%2 else "Even"
     
     return render_template("index.html", response=response,var_name=var_name )
