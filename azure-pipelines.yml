@@ -25,7 +25,7 @@ steps:
     pip install -r requirements.txt
   displayName: 'Install dependencies'
 
-  - script: |
+- script: |
     export set FLASK_APP=__init__.py
     python -m flask run
   displayName: 'Run code'
